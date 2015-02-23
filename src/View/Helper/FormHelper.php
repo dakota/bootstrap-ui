@@ -120,6 +120,9 @@ class FormHelper extends Helper
             case 'select':
             case 'multiselect':
             case 'textarea':
+                if (isset($options['multiple']) && $options['multiple'] === 'checkbox') {
+                    $this->templates(['checkboxWrapper' => '<div class="checkbox">{{label}}</div>']);
+                }
                 break;
 
             default:
